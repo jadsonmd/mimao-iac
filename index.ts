@@ -116,7 +116,7 @@ const ingress = new k8s.networking.v1.Ingress(`${name}-ingress`, {
         name: `nginx-k8s-ingress`,
         annotations: {
             "kubernetes.io/ingress.class": "nginx",
-            "nginx.ingress.kubernetes.io/rewrite-target": "/",
+            "nginx.ingress.kubernetes.io/rewrite-target": "/$1",
         },
     },
     spec: {
@@ -124,7 +124,7 @@ const ingress = new k8s.networking.v1.Ingress(`${name}-ingress`, {
         rules: [{
             http: {
                 paths: [{
-                    path: "/api",
+                    path: "/api[/|$](.*)",
                     pathType: "Prefix",
                     backend: {
                         service: {
@@ -136,7 +136,7 @@ const ingress = new k8s.networking.v1.Ingress(`${name}-ingress`, {
                     },
                 },
                 {
-                    path: "/",
+                    path: "/(.*)",
                     pathType: "Prefix",
                     backend: {
                         service: {
