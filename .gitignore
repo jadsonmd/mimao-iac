@@ -1,0 +1,6 @@
+/bin/
+/node_modules/
+/kubeconfig.json
+/Pulumi.mimao.yaml
+/Pulumi.mimao-stack.yaml
+/Pulumi.minikube-stack.yaml

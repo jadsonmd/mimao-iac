@@ -1,0 +1,3 @@
+name: mimao-iac
+runtime: nodejs
+description: A minimal AWS TypeScript Pulumi program
