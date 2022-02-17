@@ -120,7 +120,6 @@ const ingress = new k8s.networking.v1.Ingress(`${name}-ingress`, {
         },
     },
     spec: {
-        // ingressClassName: "nginx",
         rules: [{
             http: {
                 paths: [{
